@@ -55,25 +55,34 @@
                         <h1>Health Care & Tips Appointment</h1>
                         <p>Create your new account</p>
                     </div>
-                    <form id="register-form">
-                        <div class="input-group">
-                            <label>Full Name</label>
-                            <input type="text" id="fullname" placeholder="mustafa dahir" required>
-                        </div>
-                        <div class="input-group">
-                            <label>Phone Number</label>
-                            <input type="number" id="phoneNumber" placeholder="61xxxxxxx" required>
-                        </div>
-                        <div class="input-group">
-                            <label>Date of Birth</label>
-                            <input type="number" id="age" required>
-                        </div>
-                        <div class="input-group">
-                            <label>Password</label>
-                            <input type="password" id="password" placeholder="••••••••" required>
-                        </div>
-                        <button type="submit" class="btn-primary btn-block">Register</button>
-                    </form>
+                   </form>
+                <p class="auth-footer">
+                    Already have an account? <a href="#" onclick="toggleForm('login')">Login here</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="login" class="page hidden">
+        <div class="auth-wrapper">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <i class="ph-duotone ph-sign-in"></i>
+                    <h1>Welcome Back</h1>
+                    <p>Login to your account</p>
+                </div>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="number" id="login-phone" placeholder="61XXXXXXX" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="login-pass" placeholder="••••••••" required>
+                    </div>
+                    <small id="login-error" style="color: red; display: none;"></small>
+                    <button type="submit" class="btn-primary btn-block">Login</button>
+                </form>
                     <p class="auth-footer">
                         Already have an account? <a href="#" onclick="toggleForm('login')">Login here</a>
                     </p>
@@ -341,5 +350,6 @@
 
 
 </html>
+
 
 
