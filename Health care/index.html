@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Care & Tips Appointment</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons (using Phosphor Icons for a premium look) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="main-nav" class="hidden">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="app.router('home')">
+                <i class="ph-fill ph-heartbeat"></i> HealthCare
+            </a>
+            <ul class="nav-links">
+                <li><a href="home" data-page="home">Home</a></li>
+                <li><a href="doctors" data-page="doctors">Doctors</a></li>
+                <li><a href="booking" data-page="booking">Booking</a></li>
+                <li><a href="tips" data-page="tips">Tips</a></li>
+                <li><a href="contact" data-page="contact">Contact</a></li>
+                <li><a href="about" data-page="about">About</a></li>
+                <li><a href="#" onclick="app.auth.logout()" class="btn-logout"><i class="ph-bold ph-sign-out"></i></a>
+                </li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main id="app-container">
+
+        <!-- AUTH PAGES -->
+
+        <!-- Register Page -->
+        <section id="register" class="page active">
+            <div class="auth-wrapper">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <i class="ph-duotone ph-student"></i>
+                        <h1>Health Care & Tips Appointment</h1>
+                        <p>Create your new account</p>
+                    </div>
+                    <form id="register-form">
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" id="fullname" placeholder="mustafa dahir" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone Number</label>
+                            <input type="number" id="phoneNumber" placeholder="61xxxxxxx" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Date of Birth</label>
+                            <input type="date" id="dob" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Password</label>
+                            <input type="password" id="password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn-primary btn-block">Register</button>
+                    </form>
+                    <p class="auth-footer">
+                        Already have an account? <a href="#" onclick="toggleForm('login')">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Page -->
+        <section id="login" class="page hidden">
+            <div class="auth-wrapper">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <i class="ph-duotone ph-sign-in"></i>
+                        <h1>Welcome Back</h1>
+                        <p>Login to your account</p>
+                    </div>
+                    <form id="login-form">
+                        <div class="input-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="login-phone" placeholder="61xxxxxxx" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Password</label>
+                            <input type="password" id="login-pass" placeholder="••••••••" required>
+                        </div>
+                        <small id="login-error" class="error-msg global-error"></small>
+                        <button type="submit" class="btn-primary btn-block">Login</button>
+                    </form>
+                    <p class="auth-footer">
+                        Don't have an account? <a href="#" onclick="toggleForm('register')">Register here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- MAIN APP PAGES (Protected) -->
+
+        <!-- Home Page -->
+        <section id="home" class="page hidden">
+            <header class="hero">
+                <div class="hero-content">
+                    <span class="badge">Trusted Healthcare</span>
+                    <h1>Health Care</h1>
+                    <p class="slogan">We are here for your health</p>
+                    <p class="description">Experienced doctors and professional staff ready to help you at any time.</p>
+                </div>
+                <div class="hero-image">
+                    <!-- Decorative abstract shapes or medical illustration can go here via CSS -->
+                </div>
+            </header>
+
+            <div class="section-title">
+                <h2>Why You Choose Us</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="card feature-card">
+                    <div class="icon-box"><i class="ph-duotone ph-lightbulb"></i></div>
+                    <h3>Best medical tips</h3>
+                    <p>Get daily health tips to improve your lifestyle and well-being.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon-box"><i class="ph-duotone ph-stethoscope"></i></div>
+                    <h3>Professional doctors</h3>
+                    <p>Highly qualified doctors across various specializations.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon-box"><i class="ph-duotone ph-calendar-check"></i></div>
+                    <h3>Easy appointment booking</h3>
+                    <p>Book your appointment online in seconds, hassle-free.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon-box"><i class="ph-duotone ph-heart"></i></div>
+                    <h3>Continuous care</h3>
+                    <p>We provide follow-up care to ensure your full recovery.</p>
+                </div>
+            </div>
+
+            <div class="tips-preview">
+                <div class="tips-cta">
+                    <h3>Explore our latest health advice</h3>
+                    <p>Check out our comprehensive guide to healthy living.</p>
+                    <button class="btn-secondary" onclick="app.router('tips')">Read More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Doctors Page -->
+        <section id="doctors" class="page hidden">
+            <div class="page-header">
+                <h2>Our Doctors</h2>
+                <p>Meet our dedicated team of specialists</p>
+            </div>
+            <div id="doctors-grid" class="doctors-grid">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Booking Page -->
+        <section id="booking" class="page hidden">
+            <div class="booking-layout">
+                <div class="booking-form-container">
+                    <h2>Book an Appointment</h2>
+                    <form id="booking-form">
+                        <div class="input-group">
+                            <label>Patient Name</label>
+                            <input type="text" id="book-name" required>
+                            <small class="error-msg"></small>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="book-phone" required>
+                            <small class="error-msg"></small>
+                        </div>
+                        <div class="input-group">
+                            <label>Select Doctor</label>
+                            <select id="book-doctor" required>
+                                <option value="">Choose a specialist...</option>
+                                <!-- Options injected via JS -->
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <label>Date</label>
+                                <input type="date" id="book-date" required>
+                                <small class="error-msg"></small>
+                            </div>
+                            <div class="input-group">
+                                <label>Time</label>
+                                <input type="time" id="book-time" required>
+                                <small class="error-msg"></small>
+                            </div>
+                        </div>
+                        <small id="booking-global-error" class="error-msg global-error"></small>
+                        <button type="submit" class="btn-primary btn-block">Confirm Booking</button>
+                    </form>
+                </div>
+
+                <div class="my-bookings-container">
+                    <h3>Your Appointments</h3>
+                    <div id="booking-list" class="booking-list">
+                        <!-- Injected via JS -->
+                        <div class="empty-state">No appointments booked yet.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Page -->
+        <section id="tips" class="page hidden">
+            <div class="page-header">
+                <h2>Health Tips</h2>
+                <p>Expert advice for a healthier life</p>
+            </div>
+
+            <div class="search-bar">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="search" id="tips-search" placeholder="Search for tips (e.g. Sleep, hygiene...)">
+            </div>
+
+            <div id="tips-grid" class="tips-grid">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page hidden">
+            <div class="page-header">
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="ph-duotone ph-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+252 613 29 89 30</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ph-duotone ph-map-pin"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Banadir Hodan street 4KM</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ph-duotone ph-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>support@healthcare.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ph-duotone ph-clock"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon - Fri: 8:00 AM - 8:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="input-group">
+                        <label>Your Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Subject</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Message</label>
+                        <textarea rows="4" required></textarea>
+                    </div>
+                    <button type="button" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="page hidden">
+            <div class="page-header">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <h3>What we offer</h3>
+                    <p>Comprehensive healthcare management solutions designed to streamline the connection between
+                        patients and medical professionals.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Quality of Services</h3>
+                    <p>We prioritize patient care above all else, ensuring that every interaction is smooth,
+                        professional, and helpful.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Medical Staff</h3>
+                    <p>Our team consists of certified professionals with years of experience in their respective fields.
+                    </p>
+                </div>
+                <div class="mission-statement">
+                    <h3>Our Mission</h3>
+                    <p>To serve the community by making healthcare accessible, organized, and efficient for everyone.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/ui.js"></script> <!-- Re-added UI script -->
+    <script src="js/booking.js"></script>
+    <script src="js/tips.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/log.js"></script>
+</body>
+
+</html>
